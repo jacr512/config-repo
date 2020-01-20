@@ -1,0 +1,40 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    username: DIGWEB
+    password: DIGWEB
+    url: jdbc:oracle:thin:@10.51.81.172:1521:xe
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    
+#DETALLES DE LOGGING PARA ARCHIVOS Y NIVELES DE ERROR#
+logging:
+  level:
+    root: WARN
+    com.jacr: DEBUG
+    org:
+      springframework:
+        jdbc: DEBUG
+        security: DEBUG
+        web : ERROR
+        web.servlet.DispatcherServlet: DEBUG #FOR SPRING CLOUD SLEUTH
+      hibernate: DEBUG
+      apache:
+        commons:
+          dbcp2: DEBUG
+        tomcat:
+          jdbc:
+            pool: DEBUG
+    java:
+      sql:
+        Connection: DEBUG
+        PreparedStatement: DEBUG
+        Resultset: DEBUG
+        Statement: DEBUG
+        SQLInput: DEBUG
+  file: jpaTest.log
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger [%file:%line] - %msg%n'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger [%file:%line] - %msg%n'
+
